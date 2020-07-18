@@ -30,7 +30,8 @@ class ViewController: UIViewController {
     
 
         
- 
+    @IBOutlet weak var Choice3: UIButton!
+    
    
     
     
@@ -82,19 +83,24 @@ class ViewController: UIViewController {
     
         Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
             
-      
-        
-        
         
     }
     
     @objc func updateUI() {
+        let answerChoices = quizBrain.getAnswer()
+        trueButton.setTitle(answerChoices[0], for: .normal)
+        falseButton.setTitle(answerChoices[1], for: .normal)
+        Choice3.setTitle(answerChoices[2], for: .normal)
+      
+        
         questionLabel.text = quizBrain.getQuestionText()
         progressBar.progress = quizBrain.getProgressBar()
         scoreLabel.text = "Score: \(quizBrain.getScore())"
         
         trueButton.backgroundColor = UIColor.clear
         falseButton.backgroundColor = UIColor.clear
+        Choice3.backgroundColor = UIColor.clear
+        
         // the reason we got to put a one in there is because questionNumber starts with 0 hence if you divide anything with 0 it would never equal to 1. so you have to add 1 so that it can reach full bar at the end of the code. 
         
         

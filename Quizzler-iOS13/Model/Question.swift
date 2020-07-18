@@ -10,12 +10,15 @@ import Foundation
 
 struct Question {
     let text: String
-    let answer: String
+    let answer: [String]
+    let rightAnswer: String
+    
     // because why do you want to change the constant? the wuestion and the asnwer you don't want to change them
     
-    init(q: String, a: String) {
+    init(q: String , a: [String] , correctAnswer: String) {
         text = q
         answer = a
+        rightAnswer = correctAnswer
     }
     
 }
